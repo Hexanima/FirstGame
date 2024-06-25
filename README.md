@@ -11,8 +11,8 @@ Este codigo usa la versión 4.2.2 de Godot
 ## Progreso
 
 - ~Player 1.0~
-- **- Worldbuilding 1.0 -**
-- Platforms
+- ~Worldbuilding 1.0~
+- **- Platforms -**
 - Pickups
 - Dying 1.0
 - Worldbuilding 2.0
