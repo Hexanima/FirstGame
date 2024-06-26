@@ -103,7 +103,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_s351u")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 10.0
 }, {
 "frames": [{
@@ -111,7 +111,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_asypd")
 }],
 "loop": true,
-"name": &"new_animation",
+"name": &"jump",
 "speed": 10.0
 }, {
 "frames": [{
@@ -179,7 +179,8 @@ script = ExtResource("1_hs0kb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_2r1uu")
-autoplay = "default"
+animation = &"run"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
