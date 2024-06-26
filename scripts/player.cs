@@ -3,8 +3,12 @@ using System;
 
 public partial class player : CharacterBody2D
 {
-	public const float Speed = 130.0f;
-	public const float JumpVelocity = -300.0f;
+	[Export]
+	private float Speed = 130.0f;
+
+	[Export]
+	private float JumpVelocity = -300.0f;
+	
 
 	private AnimatedSprite2D animatedSprite2D;
 
@@ -53,7 +57,8 @@ public partial class player : CharacterBody2D
 				animatedSprite2D.Play("run");
 			}
 		}
-		else { 
+		else
+		{
 			animatedSprite2D.Play("jump");
 		}
 

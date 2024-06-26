@@ -19,8 +19,8 @@ Este codigo usa la versión 4.2.2 de Godot
 - ~Enemy~
 - ~Dying 2.0~
 - ~Player 2.0~
-- **- Text -**
-- Score
+- ~Text~
+- **- Score -**
 - Audio
 - Export
 - Extra...
