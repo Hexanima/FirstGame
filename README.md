@@ -13,8 +13,8 @@ Este codigo usa la versión 4.2.2 de Godot
 - ~Player 1.0~
 - ~Worldbuilding 1.0~
 - ~Platforms~
-- **- Pickups -**
-- Dying 1.0
+- ~Pickups~
+- **- Dying 1.0 -**
 - Worldbuilding 2.0
 - Enemy
 - Dying 2.0
