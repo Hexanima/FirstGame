@@ -3,10 +3,16 @@ using System;
 
 public partial class coin : Area2D
 {
-	private void _on_body_entered(Node2D body)
+	private game_manager gameManager;
+
+    public override void _Ready()
+    {
+        gameManager = GetNode<game_manager>("%GameManager");
+    }
+    private void _on_body_entered(Node2D body)
 	{
 		// Replace with function body.
-		GD.Print("+1 coin!");
+		gameManager.AddPoint();
 		this.QueueFree();
 	}
 }

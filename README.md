@@ -20,7 +20,7 @@ Este codigo usa la versión 4.2.2 de Godot
 - ~Dying 2.0~
 - ~Player 2.0~
 - ~Text~
-- **- Score -**
-- Audio
+- ~Score~
+- **- Audio -**
 - Export
 - Extra...
