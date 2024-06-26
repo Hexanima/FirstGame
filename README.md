@@ -14,8 +14,8 @@ Este codigo usa la versión 4.2.2 de Godot
 - ~Worldbuilding 1.0~
 - ~Platforms~
 - ~Pickups~
-- **- Dying 1.0 -**
-- Worldbuilding 2.0
+- ~Dying 1.0~
+- **- Worldbuilding 2.0 -**
 - Enemy
 - Dying 2.0
 - Player 2.0
