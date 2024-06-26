@@ -22,5 +22,23 @@ Este codigo usa la versión 4.2.2 de Godot
 - ~Text~
 - ~Score~
 - ~Audio~
-- **- Export -**
-- Extra...
+- ~Export~
+- **- Extra... -**
+
+## Extras
+
+### Sugeridos por Brackeys
+
+- Expandir el nivel
+- Agregar efectos
+  - Animación y/o particulas al agarrar una moneda
+  - Más sonidos y música
+- Agregar más peligros (Lanzas, trampas que encienden y apagan)
+- Agregar un menú
+- Agregar enemigos
+- Agregar un arma
+- Agregar mejoras
+- Mejorar el Game Manager
+  - Cambiar de nivel (sugerido con el Autoload)
+- Agregar Coyote Time
+- Agregar Doble Salto

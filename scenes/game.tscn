@@ -529,6 +529,12 @@ position = Vector2(1037, -26)
 [node name="Coin5" parent="Coins" instance=ExtResource("4_hbcoj")]
 position = Vector2(635, 38)
 
+[node name="Coin6" parent="Coins" instance=ExtResource("4_hbcoj")]
+position = Vector2(-216, -24)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("4_hbcoj")]
+position = Vector2(-280, -40)
+
 [node name="Slimes" type="Node" parent="."]
 
 [node name="Slime" parent="Slimes" instance=ExtResource("6_0cwuw")]
