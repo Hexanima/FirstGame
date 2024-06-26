@@ -21,6 +21,6 @@ Este codigo usa la versión 4.2.2 de Godot
 - ~Player 2.0~
 - ~Text~
 - ~Score~
-- **- Audio -**
-- Export
+- ~Audio~
+- **- Export -**
 - Extra...
