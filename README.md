@@ -42,3 +42,7 @@ Este codigo usa la versión 4.2.2 de Godot
   - Cambiar de nivel (sugerido con el Autoload)
 - Agregar Coyote Time
 - Agregar Doble Salto
+
+### Ideas propias
+
+- Agregar vida
