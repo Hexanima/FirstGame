@@ -45,4 +45,4 @@ Este codigo usa la versión 4.2.2 de Godot
 
 ### Ideas propias
 
-- Agregar vida
+- **- Agregar vida -**
