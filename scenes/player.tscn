@@ -1,7 +1,24 @@
-[gd_scene load_steps=26 format=3 uid="uid://dnjk1xk2q646a"]
+[gd_scene load_steps=31 format=3 uid="uid://dnjk1xk2q646a"]
 
 [ext_resource type="Script" path="res://scripts/player.cs" id="1_hs0kb"]
 [ext_resource type="Texture2D" uid="uid://djuv2u6sb1vbq" path="res://assets/sprites/knight.png" id="1_teimc"]
+[ext_resource type="AudioStream" uid="uid://dp7qbx2gamo2s" path="res://assets/sounds/hurt.wav" id="3_prqmj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tid0"]
+atlas = ExtResource("1_teimc")
+region = Rect2(0, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2n36"]
+atlas = ExtResource("1_teimc")
+region = Rect2(32, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k75v"]
+atlas = ExtResource("1_teimc")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vykv"]
+atlas = ExtResource("1_teimc")
+region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3765b"]
 atlas = ExtResource("1_teimc")
@@ -89,6 +106,23 @@ region = Rect2(224, 96, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2r1uu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tid0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2n36")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7k75v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vykv")
+}],
+"loop": true,
+"name": &"hurt",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3765b")
@@ -179,7 +213,7 @@ script = ExtResource("1_hs0kb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_2r1uu")
-animation = &"run"
+animation = &"hurt"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -187,5 +221,9 @@ position = Vector2(0, -5)
 shape = SubResource("CircleShape2D_fldue")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_prqmj")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

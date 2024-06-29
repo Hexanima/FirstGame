@@ -46,3 +46,5 @@ Este codigo usa la versión 4.2.2 de Godot
 ### Ideas propias
 
 - **- Agregar vida -**
+- Soporte Tactil
+  - Debe detectar si es movil o de escritorio

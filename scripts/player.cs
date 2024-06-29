@@ -15,9 +15,19 @@ public partial class player : CharacterBody2D
 
     private AnimatedSprite2D animatedSprite2D;
     private Timer timer;
+    private AudioStreamPlayer2D hurt;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+
+    public override void _Ready()
+    {
+        animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+        CurrentHealth = MaxHealth;
+        timer = GetNode<Timer>("Timer");
+        hurt = GetNode<AudioStreamPlayer2D>("Hurt");
+        GD.Print(this.CurrentHealth);
+    }
 
     private void kill()
     {
@@ -34,17 +44,10 @@ public partial class player : CharacterBody2D
         this.GetTree().ReloadCurrentScene();
     }
 
-    public override void _Ready()
-    {
-        animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
-        CurrentHealth = MaxHealth;
-        timer = GetNode<Timer>("Timer");
-        GD.Print(this.CurrentHealth);
-    }
-
     public void Hurt(int damage)
     {
         this.CurrentHealth -= damage;
+        hurt.Play();
 
         if (this.CurrentHealth <= 0)
         {
