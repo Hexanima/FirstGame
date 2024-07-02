@@ -1,4 +1,5 @@
 using System;
+using System.Reflection;
 using Godot;
 
 public partial class player : CharacterBody2D
@@ -14,8 +15,11 @@ public partial class player : CharacterBody2D
     private int CurrentHealth;
 
     private AnimatedSprite2D animatedSprite2D;
-    private Timer timer;
+    private Timer deadTimer;
+    private Timer hurtTimer;
     private AudioStreamPlayer2D hurt;
+
+    private bool isHurt = false;
 
     // Get the gravity from the project settings to be synced with RigidBody nodes.
     public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
@@ -24,7 +28,9 @@ public partial class player : CharacterBody2D
     {
         animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
         CurrentHealth = MaxHealth;
-        timer = GetNode<Timer>("Timer");
+        deadTimer = GetNode<Timer>("DeadTimer");
+        hurtTimer = GetNode<Timer>("HurtTimer");
+
         hurt = GetNode<AudioStreamPlayer2D>("Hurt");
         GD.Print(this.CurrentHealth);
     }
@@ -33,8 +39,7 @@ public partial class player : CharacterBody2D
     {
         GD.Print("Dead");
         Engine.TimeScale = 0.5;
-        this.GetNode<CollisionShape2D>("CollisionShape2D").QueueFree();
-        timer.Start();
+        deadTimer.Start();
     }
 
     private void _on_timer_timeout()
@@ -44,15 +49,31 @@ public partial class player : CharacterBody2D
         this.GetTree().ReloadCurrentScene();
     }
 
+    private void _on_hurt_timer_timeout()
+    {
+        isHurt = false;
+    }
+
     public void Hurt(int damage)
     {
         this.CurrentHealth -= damage;
         hurt.Play();
 
-        if (this.CurrentHealth <= 0)
+        if (!IsAlive())
         {
+            animatedSprite2D.Play("dead");
             this.kill();
         }
+        else
+        {
+            isHurt = true;
+            hurtTimer.Start();
+        }
+    }
+
+    public bool IsAlive()
+    {
+        return CurrentHealth > 0;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -64,41 +85,54 @@ public partial class player : CharacterBody2D
             velocity.Y += gravity * (float)delta;
 
         // Handle Jump.
-        if (Input.IsActionJustPressed("jump") && IsOnFloor())
+        if (Input.IsActionJustPressed("jump") && IsOnFloor() && IsAlive())
             velocity.Y = JumpVelocity;
 
         // GetAxis es -1, 0, 1
         float direction = Input.GetAxis("move_left", "move_right");
 
         // Sprite rotation
-        if (direction > 0)
+        if (IsAlive())
         {
-            animatedSprite2D.FlipH = false;
-        }
-        else if (direction < 0)
-        {
-            animatedSprite2D.FlipH = true;
+            if (direction > 0)
+            {
+                animatedSprite2D.FlipH = false;
+            }
+            else if (direction < 0)
+            {
+                animatedSprite2D.FlipH = true;
+            }
         }
 
         // Animations
-        if (IsOnFloor())
+        if (IsAlive())
         {
-            if (direction == 0)
+            if (isHurt)
             {
-                animatedSprite2D.Play("idle");
+                animatedSprite2D.Play("hurt");
             }
             else
             {
-                animatedSprite2D.Play("run");
+                if (IsOnFloor())
+                {
+                    if (direction == 0)
+                    {
+                        animatedSprite2D.Play("idle");
+                    }
+                    else
+                    {
+                        animatedSprite2D.Play("run");
+                    }
+                }
+                else
+                {
+                    animatedSprite2D.Play("jump");
+                }
             }
-        }
-        else
-        {
-            animatedSprite2D.Play("jump");
         }
 
         // Movement
-        if (direction != 0)
+        if (direction != 0 && IsAlive())
         {
             velocity.X = direction * Speed;
         }
