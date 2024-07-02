@@ -45,4 +45,9 @@ Este codigo usa la versión 4.2.2 de Godot
 
 ### Ideas propias
 
-- Agregar vida
+- ~Agregar vida~
+  - ~El jugador tiene vida maxima~
+  - ~Objetos dañinos tienen una propiedad de daño~
+  - ~Cuando el jugador colisiona con objetos dañinos se resta a la vida del jugador el daño del objeto daño~
+- Soporte Tactil
+  - Debe detectar si es movil o de escritorio

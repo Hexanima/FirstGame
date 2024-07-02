@@ -446,7 +446,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 4, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(576, 39), Vector2(576, 39), Vector2(784, 39), Vector2(784, 39)]
+"values": [Vector2(576, 36), Vector2(576, 36), Vector2(784, 36), Vector2(784, 36)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_33hj3"]
@@ -474,7 +474,6 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(0, 2)
 tile_set = SubResource("TileSet_1b574")
 format = 2
 layer_0/name = "Background"
@@ -494,6 +493,7 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("5_akucg")]
 position = Vector2(379, 111)
+Damage = 100000
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 shape = SubResource("WorldBoundaryShape2D_qfuxv")
@@ -501,7 +501,7 @@ shape = SubResource("WorldBoundaryShape2D_qfuxv")
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("3_0m3lw")]
-position = Vector2(-80, -8)
+position = Vector2(-80, -12)
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("3_0m3lw")]
 position = Vector2(576, 39)
@@ -527,7 +527,7 @@ position = Vector2(782, -171)
 position = Vector2(1037, -26)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("4_hbcoj")]
-position = Vector2(635, 38)
+position = Vector2(640, 36)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("4_hbcoj")]
 position = Vector2(-216, -24)
@@ -538,10 +538,10 @@ position = Vector2(-280, -40)
 [node name="Slimes" type="Node" parent="."]
 
 [node name="Slime" parent="Slimes" instance=ExtResource("6_0cwuw")]
-position = Vector2(616, -142)
+position = Vector2(616, -144)
 
 [node name="Slime2" parent="Slimes" instance=ExtResource("6_0cwuw")]
-position = Vector2(-84, 18)
+position = Vector2(-88, 15)
 
 [node name="Labels" type="Node" parent="."]
 
