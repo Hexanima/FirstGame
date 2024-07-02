@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://djuv2u6sb1vbq" path="res://assets/sprites/knight.png" id="1_teimc"]
 [ext_resource type="AudioStream" uid="uid://dp7qbx2gamo2s" path="res://assets/sounds/hurt.wav" id="3_prqmj"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7k75v"]
+atlas = ExtResource("1_teimc")
+region = Rect2(64, 192, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vykv"]
+atlas = ExtResource("1_teimc")
+region = Rect2(96, 192, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mha0y"]
 atlas = ExtResource("1_teimc")
 region = Rect2(0, 224, 32, 32)
@@ -19,14 +27,6 @@ region = Rect2(64, 224, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yaccx"]
 atlas = ExtResource("1_teimc")
 region = Rect2(96, 224, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7k75v"]
-atlas = ExtResource("1_teimc")
-region = Rect2(64, 192, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1vykv"]
-atlas = ExtResource("1_teimc")
-region = Rect2(96, 192, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3765b"]
 atlas = ExtResource("1_teimc")
@@ -116,6 +116,12 @@ region = Rect2(224, 96, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_7k75v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vykv")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mha0y")
 }, {
 "duration": 1.0,
@@ -124,7 +130,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3gmes")
 }, {
-"duration": 8.0,
+"duration": 6.0,
 "texture": SubResource("AtlasTexture_yaccx")
 }],
 "loop": false,
@@ -234,6 +240,8 @@ position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_2r1uu")
 animation = &"dead"
 autoplay = "idle"
+frame = 5
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
