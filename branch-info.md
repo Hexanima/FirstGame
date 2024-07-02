@@ -1,3 +1,5 @@
+# Cambios de esta rama (O Wiki)
+
 ## Vida del jugador
 
 - El jugador maneja una vida maxima y actual
