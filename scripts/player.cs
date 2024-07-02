@@ -61,7 +61,6 @@ public partial class player : CharacterBody2D
 
         if (!IsAlive())
         {
-            animatedSprite2D.Play("dead");
             this.kill();
         }
         else
@@ -129,6 +128,10 @@ public partial class player : CharacterBody2D
                     animatedSprite2D.Play("jump");
                 }
             }
+        }
+        else
+        {
+            animatedSprite2D.Play("dead");
         }
 
         // Movement
